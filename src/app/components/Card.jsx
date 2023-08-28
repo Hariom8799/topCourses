@@ -1,6 +1,7 @@
 import React from 'react'
 import {FcLike,FcLikePlaceholder} from 'react-icons/fc'
 import { toast } from 'react-toastify';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function Card(props) {
   let likedCourses = props.likedCourses;
@@ -34,7 +35,11 @@ function likeHandler(){
 
   return (
     <div className='w-[300px] relative overflow-hidden rounded-md bg-black bg-opacity-40 text-white'>
-      <img src={props.image.url} alt={props.image.alt}/>
+       <LazyLoadImage
+          alt={props.image.alt}
+          src={props.image.url} 
+           />
+      {/* <img src={props.image.url} alt={props.image.alt}/> */}
       <div className='w-full relative'>
         <button onClick={likeHandler} className='p-1 bg-white rounded-full absolute right-2 -bottom-5'>
           {/* logic for the changing the icon for liked and unliked  */}
